@@ -7,7 +7,9 @@ angular.module('Ngboris', [
   'Ngboris.services',
   'Ngboris.directives',
   'Ngboris.controllers',
-  'Ngboris.templates'
+  'Ngboris.templates',
+  'ngCookies',
+  'backand' 
 ]);
 
 angular.module('Ngboris').run(function ($rootScope, $state) {
