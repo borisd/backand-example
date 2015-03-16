@@ -16,7 +16,7 @@ class InspectionsController {
     vm.Inspections.add(this.name, this.desc)
       .then(
         (data) => {
-          debugger;
+          vm.inspections.data.push(data);
           vm.showAdd = false;
           vm.name = '';
           vm.desc = '';

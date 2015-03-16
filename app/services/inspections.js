@@ -19,14 +19,13 @@ class Inspections {
   }
 
   add(name, desc) {
-    return this.$http({
-      method: 'POST',
-      url: this.Backand.configuration.apiUrl + '/1/table/data/' + 'inspection',
-      params: {
+    return this.$http.post(
+      this.Backand.configuration.apiUrl + '/1/table/data/' + 'inspection/{id}?returnObject=true',
+      {
         name: name,
         description: desc
       }
-    })
+    ).then( (data) => { return data.data } )
   }
 }
 
