@@ -5,9 +5,9 @@ class Inspections {
   }
 
   list() {
-    return $http({
+    return this.$http({
       method: 'GET',
-      url: Backand.configuration.apiUrl + '/1/table/data/' + 'inspections',
+      url: this.Backand.configuration.apiUrl + '/1/table/data/' + 'inspection',
       params: {
         pageSize: 100,
         pageNumber: 1,
