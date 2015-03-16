@@ -2,6 +2,7 @@ class LoginController {
   constructor ($state, Backand, Session) {
     this.Backand = Backand;
     this.Session = Session;
+    this.$state = $state;
 
     if (Session.loggedIn())
       $state.go('home');
@@ -16,6 +17,10 @@ class LoginController {
       ,
         (error) => alert("Cannot login")
       );
+  }
+
+  cancel() {
+    this.$state.go('home');
   }
 }
 
