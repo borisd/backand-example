@@ -37,8 +37,8 @@ class Checks {
   }
 
   toggle(id, done = true) {
-    return this.$http.post(
-      this.Backand.configuration.apiUrl + '/1/table/data/' + 'check/' + id + '?returnObject=true',
+    return this.$http.put(
+      this.Backand.configuration.apiUrl + '/1/table/data/' + 'check/' + id,
       { done: done }
     ).then( (data) => { return data.data } )
   }}
