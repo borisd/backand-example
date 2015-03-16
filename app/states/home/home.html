@@ -1,10 +1,4 @@
-<h1>Welcome to Ngboris!</h1>
+<h1 ng-show="Home.loggedIn()">Welcome to Ngboris!</h1>
 
-<strong>Your application is ready.</strong>
+<a ng-hide="Home.loggedIn()" ui-sref="login">Login</a>
 
-
-<p class="usage">
-  <code>
-    $ kick generate <span class="command">{{ Home.command }}</span> &lt;options&gt;
-  </code>
-</p>

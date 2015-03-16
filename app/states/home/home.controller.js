@@ -1,29 +1,12 @@
 class HomeController {
 
-  constructor ($scope, $interval) {
+  constructor ($scope, $interval, Session) {
     var Home = this;
-    let commands = [
-      'state',
-      'model',
-      'service',
-      'directive',
-      'filter',
-      'partial',
-      'config',
-      'stylesheet',
-      'environment'
-    ];
+    this.Session = Session;
+  }
 
-    Home.command = commands[0];
-
-    let rotateCommands = $interval(function () {
-      commands.push(commands.splice(0, 1)[0]);
-      Home.command = commands[0];
-    }, 2000);
-
-    $scope.$on('$destroy', function () {
-      $interval.cancel(rotateCommands);
-    });
+  loggedIn() {
+    return this.Session.loggedIn();
   }
 
 }
