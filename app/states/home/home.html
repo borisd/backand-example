@@ -1,4 +1,6 @@
 <h1 ng-show="Home.loggedIn()">Welcome to Ngboris!</h1>
 
 <a ng-hide="Home.loggedIn()" ui-sref="login">Login</a>
+<a ng-show="Home.loggedIn()" ng-click="Home.logout()">Logout</a>
+<a ng-show="Home.loggedIn()" ui-sref="inspections">Inspections</a>
 

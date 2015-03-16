@@ -1,20 +1,26 @@
 class Session {
-  constructor ($cookieStore) {
+  constructor ($cookieStore, $state, Backand) {
     this.$cookieStore = $cookieStore;
-    this.auth = $cookieStore.get('backand_token');
+    this.$state = $state;
+    this.Backand = Backand;
+
+    this.auth = $cookieStore.get(this.Backand.configuration.tokenName);
   }
 
   login(_auth) {
     this.auth = _auth;
+    this.$cookieStore.put(this.Backand.configuration.tokenName, _auth);
+    this.$state.go('home');
   }
 
   logout() {
     this.auth = null;
-    $cookieStore.remote('backand_token');
+    this.$cookieStore.remove(this.Backand.configuration.tokenName);
+    this.$state.go('home');
   }
 
   loggedIn() {
-    return (this.auth !== null);
+    return (typeof(this.auth) === "string");
   }
 
 }

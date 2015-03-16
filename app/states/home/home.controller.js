@@ -9,6 +9,10 @@ class HomeController {
     return this.Session.loggedIn();
   }
 
+  logout() {
+    this.Session.logout();
+  }
+
 }
 
 angular.module('Ngboris.controllers').controller('HomeController', HomeController);

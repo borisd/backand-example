@@ -1,24 +1,20 @@
 class LoginController {
-  constructor (Backand, $cookieStore) {
-    this.message = 'Hello from LoginController';
+  constructor ($state, Backand, Session) {
     this.Backand = Backand;
-    this.$cookieStore = $cookieStore;
-    this.appName = 'ngboris';
+    this.Session = Session;
+
+    if (Session.loggedIn())
+      $state.go('home');
   }
 
   signIn() {
     let vm = this;
 
-    console.log("Login..");
-
     this.Backand.signin(this.username, this.password, this.appName)
-      .then((token) => {
-          vm.$cookieStore.put(vm.Backand.configuration.tokenName, token);
-          console.log("Logged in");
-        },
-        function (data, status, headers, config) {
-          alert("Error");
-        }
+      .then(
+        (token) => vm.Session.login(token)
+      ,
+        (error) => alert("Cannot login")
       );
   }
 }
