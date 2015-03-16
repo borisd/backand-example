@@ -1,5 +1,6 @@
 <div class="page-header">
   <h1>Checks</h1>
+  <a ng-click="Checks.back()">Back to Inspections</a>
 </div>
 
 <table class="table table-hover" ng-show="Checks.checks">
@@ -10,15 +11,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="check in Checks.checks.data" class="check" ng-class="{ checked: check.done }">
-      <td ng-click="Checks.toggle(check)">{{ check.name }} </td>
+    <tr ng-repeat="check in Checks.checks.data" class="check">
+      <td ng-click="Checks.toggle(check)" ng-class="{ checked: check.done }">{{ check.name }} </td>
       <td>{{ check.comment }}</td>
     </tr>
   </tbody>
 </table>
 
 <button class="btn btn-default" ng-click="Checks.showAdd = true" ng-hide="Checks.showAdd">Add</button>
-<button class="btn btn-default" ng-click="Checks.back()" ng-hide="Checks.showAdd">Inspection</button>
 
 <form ng-submit="Checks.add()" ng-show="Checks.showAdd">
   <div class="form-group">
