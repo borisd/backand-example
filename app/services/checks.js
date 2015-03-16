@@ -11,13 +11,13 @@ class Checks {
       params: {
         pageSize: 100,
         pageNumber: 1,
-        //filter: [
-          //{
-            //fieldName: 'inspection_id',
-            //operator: '=',
-            //value: inspectionId
-          //}
-        //],
+        filter: JSON.stringify([
+          {
+            fieldName: 'inspection_id',
+            operator: 'in',
+            value: inspectionId
+          }
+        ]),
         sort: ''
       }
     })
