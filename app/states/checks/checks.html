@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>Checks</h1>
+</div>
+
+<table class="table table-hover" ng-show="Checks.checks">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="check in Checks.checks.data" class="check" ng-class="{ checked: check.done }">
+      <td ng-click="Checks.toggle(check)">{{ check.name }} </td>
+      <td>{{ check.comment }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-default" ng-click="Checks.showAdd = true" ng-hide="Checks.showAdd">Add</button>
+<button class="btn btn-default" ng-click="Checks.back()" ng-hide="Checks.showAdd">Inspection</button>
+
+<form ng-submit="Checks.add()" ng-show="Checks.showAdd">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input ng-model="Checks.name" type="text" class="form-control" id="name" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <input ng-model="Checks.comment" type="text" class="form-control" id="comment" placeholder="Comment">
+  </div>
+  <button type="submit" class="btn btn-default">Add</button>
+  <a class="btn btn-danger" ng-click="Checks.showAdd = false">Cancel</a>
+</form>
+

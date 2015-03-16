@@ -10,10 +10,10 @@
     </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="inspection in Inspections.inspections.data">
-    <td>{{ inspection.name }}</td>
-    <td>{{ inspection.description }}</td>
-  </tr>
+    <tr ng-repeat="inspection in Inspections.inspections.data">
+      <td> <a ui-sref="checks({ id: inspection.Id })"> {{ inspection.name }} </a> </td>
+      <td>{{ inspection.description }}</td>
+    </tr>
   </tbody>
 </table>
 
