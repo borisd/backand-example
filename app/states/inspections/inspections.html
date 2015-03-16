@@ -1,4 +1,18 @@
-<h1>Hurray!</h1>
-<div>{{ Inspections.message }}!</div>
+<div class="page-header">
+  <h1>Inspections</h1>
+</div>
 
-<ui-view></ui-view>
+<button class="btn btn-default" ng-click="Inspections.showAdd = true" ng-hide="Inspections.showAdd">Add</button>
+
+<form ng-submit="Inspections.add()" ng-show="Inspections.showAdd">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input ng-model="Inspections.name" type="text" class="form-control" id="name" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="desc">Description</label>
+    <input ng-model="Inspections.desc" type="text" class="form-control" id="desc" placeholder="Description">
+  </div>
+  <button type="submit" class="btn btn-default">Add</button>
+  <button type="cancel" class="btn btn-danger" ng-click="Inspections.showAdd = false">Cancel</button>
+</form>

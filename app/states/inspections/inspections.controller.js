@@ -1,5 +1,6 @@
 class InspectionsController {
-  constructor ($http, Inspections) {
+  constructor (Inspections) {
+    this.Inspections = Inspections;
 
     Inspections.list()
       .then(
@@ -7,6 +8,20 @@ class InspectionsController {
         , 
         (error) => console.log("Can't load: `error`")
       );
+  }
+
+  add() {
+    let vm = this;
+
+    vm.Inspections.add(this.name, this.desc)
+      .then(
+        (data) => {
+          debugger;
+          vm.showAdd = false;
+          vm.name = '';
+          vm.desc = '';
+        }
+      )
   }
 }
 

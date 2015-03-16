@@ -17,6 +17,17 @@ class Inspections {
     })
       .then( function(data) { return data.data } );
   }
+
+  add(name, desc) {
+    return this.$http({
+      method: 'POST',
+      url: this.Backand.configuration.apiUrl + '/1/table/data/' + 'inspection',
+      params: {
+        name: name,
+        description: desc
+      }
+    })
+  }
 }
 
 angular.module('Ngboris.services').service('Inspections', Inspections);
