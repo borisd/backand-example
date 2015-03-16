@@ -1,0 +1,7 @@
+/.idea
+/.tmp
+/.test
+/bower_components
+/node_modules
+/.sass-cache
+/test/results

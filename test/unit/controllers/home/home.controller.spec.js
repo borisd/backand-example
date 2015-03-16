@@ -1,0 +1,20 @@
+describe('HomeController', function () {
+  var homeController, createController, scope;
+
+  beforeEach(module('Ngboris.controllers'));
+
+  beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
+    createController = function () {
+      homeController = $controller('HomeController', { $scope: scope });
+    };
+  }));
+
+  beforeEach(function () {
+    createController();
+  });
+
+  it('should have default variable', function () {
+    expect(homeController.command).toBe('state');
+  });
+});
